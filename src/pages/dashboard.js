@@ -7,7 +7,7 @@ ReactDOM.render(
         <nav className="navbar is-spaced">
             <div className="navbar-brand">
                 <div className="navbar-item">
-                    <h1 className="title">Timecheck</h1>
+                    <h1 className="title">TimeCheck</h1>
                 </div>
             </div>
             <div className="navbar-menu">
@@ -28,9 +28,16 @@ ReactDOM.render(
                         <h2 className="subtitle">Good afternoon,</h2>
                         <h1 className="title">Name</h1>
                     </div>
-                    <div className="column is-3 has-text-centered">
-                        <h2 className="subtitle">Activity</h2>
-
+                    <div className="column is-4 has-text-centered">
+                        <h2 className="subtitle">Last 7 days</h2>
+                        <span className="activity-day"/>
+                        <span className="activity-day lit"/>
+                        <span className="activity-day"/>
+                        <span className="activity-day"/>
+                        <span className="activity-day lit"/>
+                        <span className="activity-day lit"/>
+                        <span className="activity-day lit"/>
+                        <p>Three-day streak! Keep it up 🔥</p>
                     </div>
                 </div>
             </div>

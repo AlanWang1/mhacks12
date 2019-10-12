@@ -10,6 +10,18 @@ $footer-background-color: $yellowDark;
 @import '../../../node_modules/bulma/bulma.sass';
 
 
+.activity-day {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin: 3px;
+    background-color: $red;
+    opacity: 0.9;
+    &.lit {
+        background-color: $green;
+    }
+}
 .subject-buttons {
     .subject-button {
         margin: 1rem;
