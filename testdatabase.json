@@ -43,13 +43,20 @@
             "age": 5,
             "classes": {
                 "classId": {
-                    "completed": {
+                    "done": {
                         "set1Id": {
-                            "images": ["path/to/img1", "path/to/img2"],
-                            "feedback": [
+                            "questions": [
                                 {
-                                    "image": "path/to/feedback1",
-                                    "text": "Very well done, Vitamin Water."
+                                    "time": 40,
+                                    "image": "path/to/image1",
+                                    "feedback": {
+                                        "image": "path/to/feedback1",
+                                        "text": "Very well done, Vitamin Water."
+                                    }
+                                },
+                                {
+                                    "time": 250,
+                                    "image": "path/to/image1"
                                 }
                             ]
                         }
