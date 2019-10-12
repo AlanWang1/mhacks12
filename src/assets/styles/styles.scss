@@ -1,10 +1,12 @@
 @charset "utf-8";
 $yellow: #ffeecc;
-$yellow2: #ffdd9a;
+$yellowDark: #fcdd9f;
+$red: #ff3d3d;
+$green: #539911;
 
 $body-background-color: $yellow;
-$navbar-background-color: $yellow2;
-$footer-background-color: $yellow2;
+$navbar-background-color: $yellowDark;
+$footer-background-color: $yellowDark;
 @import '../../../node_modules/bulma/bulma.sass';
 
 
