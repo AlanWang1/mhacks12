@@ -7,6 +7,8 @@ $green: #539911;
 $body-background-color: $yellow;
 $navbar-background-color: $yellowDark;
 $footer-background-color: $yellowDark;
+
+$primary: $green;
 @import '../../../node_modules/bulma/bulma.sass';
 
 
@@ -38,4 +40,13 @@ $footer-background-color: $yellowDark;
             user-select: none;
         }
     }
+}
+
+.timer {
+    @extend .subtitle;
+    color: $green;
+}
+
+.submit-question-button {
+    @extend .button, .is-large, .is-primary;
 }
