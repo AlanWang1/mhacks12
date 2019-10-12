@@ -1,9 +1,34 @@
 import React from 'react';
 import QSet from './QSet';
+import Chart from './Chart';
 class Analytics extends React.Component {
     render() {
         return (
-                "d"
+          <>
+                <Chart/>
+                <div className="container">
+                    <div className="columns">
+
+
+
+                    </div>  
+
+                    <div className="columns">
+                        
+
+
+                    </div> 
+
+                    <div className="columns">
+                        
+
+
+                    </div>    
+            
+         
+                </div>
+               
+         </>
             );
     }
 }
