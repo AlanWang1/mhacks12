@@ -5,23 +5,7 @@ class Layout extends React.Component {
     render() {
         return (
         <main>
-            <nav className="level is-mobile bg-aqua ">
-                <p className="level-item has-text-centered">
-
-                    dddddd
-                </p>
-                <p className="level-item has-text-centered">
-
-                        dddddd
-                </p>
-
-                <p className="level-item has-text-centered">
-
-                    ddddd    
-                </p>
-
-
-            </nav>
+           
             {this.props.children}
      
             <section className="footer">
