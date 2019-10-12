@@ -1,0 +1,88 @@
+{
+    "classes": {
+        "classId": {
+            "name": "Grade 1 Math",
+            "owner": "Ms. Apple",
+            "students": ["student1Id","student2Id"],
+            "sets": ["set1Id","set2Id"]
+        }
+    },
+    "sets": {
+        "set1Id": {
+            "name": "Addition Practice",
+            "description": "A few additional practice questions",
+            "questions": [
+                {
+                    "question": "What is 1 + 1?",
+                    "time": 60
+                },
+                {
+                    "question": "What is 3 + 7?",
+                    "time": 420
+                }
+            ]
+        },
+        "set2Id": {
+            "name": "Subtraction Practice",
+            "description": "A few more practice questions",
+            "questions": [
+                {
+                    "question": "What is 4 - 3?",
+                    "time": 90
+                },
+                {
+                    "question": "What is 10 - 9?",
+                    "time": 600
+                }
+            ]
+        }
+    },
+    "students": {
+        "student1Id": {
+            "name": "Vitamin Water",
+            "age": 5,
+            "classes": {
+                "classId": {
+                    "completed": {
+                        "set1Id": {
+                            "images": ["path/to/img1", "path/to/img2"],
+                            "feedback": [
+                                {
+                                    "image": "path/to/feedback1",
+                                    "text": "Very well done, Vitamin Water."
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "student2Id": {
+            "name": "Milk Tea",
+            "age": 7,
+            "classes": {
+                "classId": {
+                    "completed": {
+                        "set1Id": {
+                            "images": ["path/to/img1", "path/to/img2"],
+                            "feedback": [
+                                {
+                                    "image": "path/to/feedback1",
+                                    "text": "Good thinking, Milk Tea."
+                                },
+                                {
+                                    "image": "path/to/feedback2",
+                                    "text": "Correct answer but please show your work more carefully!"
+                                }
+                            ]
+                        },
+                        "set2Id": {
+                            "images": ["path/to/img1", "path/to/img2"],
+                            "feedback": []
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
