@@ -1,0 +1,29 @@
+{
+  "name": "mhacks12",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "parcel watch src/*.html -d public --public-url ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlanWang1/mhacks12.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlanWang1/mhacks12/issues"
+  },
+  "homepage": "https://github.com/AlanWang1/mhacks12#readme",
+  "dependencies": {
+    "firebase": "^7.2.0",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
+  },
+  "devDependencies": {
+    "bulma": "^0.7.5",
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.23.0"
+  }
+}
