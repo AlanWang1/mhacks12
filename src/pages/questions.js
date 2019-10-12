@@ -10,7 +10,7 @@ ReactDOM.render(
         <section className="hero is-large">
             <div className="hero-body">
                 <div className="container">
-                    <QuestionsSession setId="set1Id"/>                    
+                    <QuestionsSession studentId="student1Id" classId="classId" setId="set1Id"/>                    
                 </div>
             </div>
         </section>
