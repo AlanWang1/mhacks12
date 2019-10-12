@@ -1,3 +1,27 @@
 @charset "utf-8";
+$yellow: #ffeecc;
+$yellow2: #ffdd9a;
 
+$body-background-color: $yellow;
+$navbar-background-color: $yellow2;
+$footer-background-color: $yellow2;
 @import '../../../node_modules/bulma/bulma.sass';
+
+
+.subject-buttons {
+    .subject-button {
+        margin: 1rem;
+        cursor: pointer;
+        img {
+            border-radius: 2rem;
+        }
+        figcaption {
+            position: absolute;
+            top: 10%;
+            background-color: rgba($yellow, 0.8);
+            width: 100%;
+            padding: 2rem;
+            user-select: none;
+        }
+    }
+}
