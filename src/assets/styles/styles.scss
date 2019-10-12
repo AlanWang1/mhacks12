@@ -50,3 +50,7 @@ $primary: $green;
 .submit-question-button {
     @extend .button, .is-large, .is-primary;
 }
+
+html{
+    scroll-behavior:smooth;
+}
