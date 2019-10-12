@@ -8,7 +8,7 @@ import config from  '../../config';
 class QuestionsSession extends React.Component {
     constructor(props) {
         super(props);
-        firebase.initializeApp(config.firebase);
+        if (!firebase.apps.length)  firebase.initializeApp(config.firebase);
         this.state = {
             loading: true,
             timer: false,

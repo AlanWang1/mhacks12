@@ -7,7 +7,7 @@ import Auth from '../components/Auth';
 
 ReactDOM.render(
     <Layout>
-        <section className="hero is-large">
+        <section className="hero is-fullheight">
             <div className="hero-body">
                 <div className="container">
                     <Auth/>
