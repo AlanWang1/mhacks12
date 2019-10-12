@@ -9,7 +9,11 @@ ReactDOM.render(
                     <h1 className="title">
                         Pinecone Study
                     </h1>
+                    <a className="button is-medium">
+                        Signup
+                    </a>
                 </div>
+                
             </section>
         </section>
     </Layout>, document.getElementById('root'));
