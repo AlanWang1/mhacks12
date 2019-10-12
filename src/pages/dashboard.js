@@ -2,25 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Layout from '../components/Layout';
 import SubjectButton from '../components/SubjectButton';
+import UserNavbar from '../components/UserNavbar';
 ReactDOM.render(
     <Layout>
-        <nav className="navbar is-spaced">
-            <div className="navbar-brand">
-                <div className="navbar-item">
-                    <h1 className="title">TimeCheck</h1>
-                </div>
-            </div>
-            <div className="navbar-menu">
-                <div className="navbar-end">
-                    <div className="navbar-item">
-                        Notifications
-                    </div>
-                    <div className="navbar-item">
-                        Profile
-                    </div>
-                </div>
-            </div>
-        </nav>
+        <UserNavbar/>
         <section className="section">
             <div className="container">
                 <div className="columns has-text-centered-mobile">
