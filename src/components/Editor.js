@@ -1,40 +1,30 @@
 import React from 'react';
-import '../assets/styles/styles.scss'
-class Editor
- extends React.Component {
-    componentWillMount(){
-        this.setState({
-            canvasSize: {canvasWidth: 1000, canvasHeight:1000}
-        })
-    }
-    componentDidMount(){
-        const {canvasWidth, canvasHeight}=this.state.canvasSize;
-        this.canvasDraw.width=canvasWidth;
-        this.canvasDraw.height=canvasHeight;
+import '../assets/styles/styles.scss';
+import Canvas from './Canvas';
+import UserNavbar from './UserNavbar';
 
-    }
-    draw(){
-        window.addEventListener("load",() => {
-            const ctx=this.canvasDraw.getContext("2d");
-            ctx.strokeStyle="blue";
-            ctx.strokeRect(100,100,200,500);
-        });
+class Editor extends React.Component {
+    constructor(props) {
+        super(props);
     }
     render() {
         return (
-            <div className="container">
-                <canvas ref={canvasDraw=> this.canvasDraw=canvasDraw}>
-                
-                </canvas>
-
-               
-            </div>
-           
-
-            
+            <>
+                <UserNavbar/>
+                <section className="section">
+                    <div className="container">
+                        <h1 className="title">Feedback Studio</h1>
+                        <div className="columns is-centered">
+                            <div className="column is-9 has-text-centered">
+                                <Canvas/>
+                                <textarea className="textarea" placeholder="Additional comments?"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </>
             );
     }
 }
 
-export default Editor
-;
+export default Editor;

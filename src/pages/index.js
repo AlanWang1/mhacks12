@@ -21,12 +21,14 @@ ReactDOM.render(
           
             <div className="hero-foot has-text-centered">
                     <a href="#scroll">
-                    <p className="has-text-info">
-                        Learn More
-                    </p>
-                    <span className="icon has-text-info">
-                        <i className="fas fa-angle-down"></i>
-                    </span>
+                        <div>
+                            <p className="has-text-info">
+                                Learn More
+                            </p>
+                            <span className="icon has-text-info">
+                                <i className="fas fa-angle-down"></i>
+                            </span>
+                        </div>
                     </a>
                   
                 </div> 

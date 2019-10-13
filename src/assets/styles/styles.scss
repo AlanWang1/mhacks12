@@ -22,14 +22,15 @@
   
 
 $family-sans-serif: 'Sarabun', sans-serif;
-$yellow: #f0e7da;
-$yellowDark: #eec4a8;
+$beige: #f0e7da;
+$dark-beige: #eec4a8;
 $red: #ff3d3d;
 $green: #539911;
+$yellow: #f8d123;
 
-$body-background-color: $yellow;
-$navbar-background-color: $yellowDark;
-$footer-background-color: $yellowDark;
+$body-background-color: $beige;
+$navbar-background-color: $dark-beige;
+$footer-background-color: $dark-beige;
 
 $primary: $green;
 $info: $red;
@@ -61,7 +62,7 @@ $info: $red;
         figcaption {
             position: absolute;
             top: 10%;
-            background-color: rgba($yellow, 0.8);
+            background-color: rgba($beige, 0.8);
             width: 100%;
             padding: 2rem;
             user-select: none;
@@ -81,10 +82,20 @@ $info: $red;
 html{
     scroll-behavior:smooth;
 }
+body {
+    background-image: url('../images/tiling.png');
+    background-size: 10%;
+}
 .centered {
     margin: auto;
 }
-canvas{
+canvas {
     border-style:solid;
-    border-width: 5px;
+    border-width: 2px;
+}
+
+.navbar-item {
+    img {
+        max-height: 3rem;
+    }
 }
