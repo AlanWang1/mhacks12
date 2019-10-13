@@ -6,15 +6,15 @@ class Feedback
         return (
             <section className="container">
                 <h1 className="title"> Overall:</h1>
-                <p className="subtitle"> cdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd </p>
+                <p className="subtitle"> Cool and Good</p>
 
                 <h1 className="title">
                     Reviewed Question Sets
                 </h1>
 
                     <section className="columns">
-                    <section className="columns is-narrow">
-                        <div className="columns is-multiline">
+                    <section className="columns is-one-fifth">
+                        <div className="columns is-multiline is-gapless">
                         {[
                             {
                                 title: 'Stoichiometery',
@@ -26,7 +26,7 @@ class Feedback
                                 questions: ['', '', '', '', '']
                             }
                         ].map(set => 
-                        <div key={set.title} className="column is-12">
+                        <div key={set.title} className="column is-8">
                             <Completed title={set.title} numQuestions={set.questions.length}/>
  
 
@@ -34,12 +34,12 @@ class Feedback
 
                     
                         </div>
-                    <section className="columns">
-                        <div className="container">
-                          
-                        </div>
                     </section>
 
+                    <section className="columns">
+                        <div className="container">
+                         
+                          </div>
                     </section>
 
                       

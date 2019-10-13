@@ -7,7 +7,7 @@ ReactDOM.render(
             <div className="hero-body has-text-centered">
                 <div className="container">
                     <h1 className="title is-1">
-                        TimeCheck
+                        <span className="has-text-info">Time</span><span className="has-text-primary">Check</span>
                     </h1>
                     <h2 className="subtitle">
                         An unparalleled platform of student-teacher interaction for improving test results.
@@ -38,7 +38,9 @@ ReactDOM.render(
         <div className="container">
         <div className="columns ">
                 <div className="column is-narrow">
-                    
+                    <div className="tile is-1">
+
+                    </div>
                 </div>
                 <div className="column">
                         <h1 className="title">
@@ -59,25 +61,46 @@ ReactDOM.render(
             
                 <div className="column is-2">
                     <div className="box">
+                    <span class="icon has-text-primary is-size-1">
+                        <i class="fas fa-file-alt"></i>
+                    </span>
+                    <br>
                         Receive Question Sets
+                    </br>
                     </div>     
                 </div>
 
                 <div className="column is-2">
                     <div className="box">
+                    <span class="icon has-text-primary is-size-1">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </span>
+                    <br>
                         Send solutions to your teacher
+                    </br>
                     </div>
                 </div>
 
                 <div className="column is-2">
                     <div className="box">
+                    <span class="icon has-text-primary is-size-1">
+                        <i class="fas fa-comment-dots"></i>
+                    </span>
+                    <br>
                         Receive personalized feedback
+                    </br>
                     </div>
                 </div>
 
                 <div className="column is-2">
                     <div className="box">
-                        Monitor your progress
+                    <span class="icon has-text-primary is-size-1">
+                        <i class="fas fa-chart-line"></i>
+                    </span>
+                    <br>
+                    Monitor your progress
+                    </br>
+                       
                     </div>
                 </div>
            

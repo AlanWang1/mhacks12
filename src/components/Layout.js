@@ -9,7 +9,7 @@ class Layout extends React.Component {
             {this.props.children}
      
             <section className="footer">
-                <div className="container">
+                <div className="container has-text-centered">
                     <h2 className="subtitle">Footer</h2>
                 </div>
             </section>

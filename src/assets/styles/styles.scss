@@ -31,7 +31,8 @@ $yellow: #f8d123;
 $body-background-color: $beige;
 $navbar-background-color: $dark-beige;
 $footer-background-color: $dark-beige;
-
+$tabs-link-active-border-bottom-color: $red;
+$tabs-link-active-color:$red;
 $primary: $green;
 $info: $red;
 @import '../../../node_modules/bulma/bulma.sass';
