@@ -4,12 +4,10 @@ import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
 import config from '../../config';
-
-import UserNavbar from '../components/UserNavbar';
-import ClassButton from '../components/ClassButton';
+import UserNavbar from './UserNavbar';
 import Loading from './Loading';
 
-class Dashboard extends React.Component {
+class TeacherDashboard extends React.Component {
     constructor(props) {
         super(props);
         if (!firebase.apps.length)  firebase.initializeApp(config.firebase);
@@ -24,14 +22,14 @@ class Dashboard extends React.Component {
                     name: firebase.auth().currentUser.displayName,
                     profilePhoto: firebase.auth().currentUser.photoURL
                 });
-                firebase.database().ref(`students/${user.uid}`).once('value', snapshot => {
+                firebase.database().ref(`teachers/${user.uid}`).once('value', snapshot => {
                     if (snapshot.exists()) {
                         this.setState({
                             classes: Object.keys(snapshot.val().classes ? snapshot.val().classes : []),
                             loading: false
                         });
                     } else {
-                        firebase.database().ref(`students/${user.uid}`).set({
+                        firebase.database().ref(`teachers/${user.uid}`).set({
                             classes: {},
                             name: firebase.auth().currentUser.displayName,
                         });
@@ -45,9 +43,8 @@ class Dashboard extends React.Component {
         });
     }
     render() {
-        return this.state.loading ? (
-                <Loading/>
-            ) : (<>
+        return this.state.loading ? <Loading/> : (
+        <>
             <UserNavbar profilePhoto={this.state.profilePhoto}/>
             <section className="section">
                 <div className="container">
@@ -56,16 +53,16 @@ class Dashboard extends React.Component {
                             <h2 className="subtitle">Good afternoon,</h2>
                             <h1 className="title">{this.state.name}</h1>
                         </div>
-                        <div className="column is-3 has-text-centered">
-                            <h2 className="subtitle">Last 7 days</h2>
-                            <span className="activity-day"/>
-                            <span className="activity-day lit"/>
-                            <span className="activity-day"/>
-                            <span className="activity-day"/>
-                            <span className="activity-day lit"/>
-                            <span className="activity-day lit"/>
-                            <span className="activity-day lit"/>
-                            <p>Three-day streak! Keep it up 🔥</p>
+                        <div className="column is-3 is-8-mobile is-offset-2-mobile">
+                            <div className="box has-text-centered">
+                                <h2 className="subtitle">Start a class</h2>
+                                <div className="field">
+                                    <div className="control">
+                                        <input type="text" className="input" placeholder="Class Name"/>
+                                    </div>
+                                </div>
+                                <button className="button is-primary">Create</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -73,7 +70,7 @@ class Dashboard extends React.Component {
             <section className="section">
                 <div className="container">
                     <h2 className="subtitle is-3">Your classes</h2>
-                    <div className="columns is-centered">
+                    <div className="columns">
                         <div className="column is-9">
                             <div className="columns is-multiline class-buttons">
                                 {this.state.classes.map((classData, index) => 
@@ -82,27 +79,16 @@ class Dashboard extends React.Component {
                                 </div>)}
                                 {this.state.classes.length === 0 &&
                                 (<div className="column is-5">
-                                    <h1 className="title">Unfortunately...</h1>
-                                    <h2 className="subtitle">You're not in any classes.</h2>
+                                    <h1 className="title">How come?</h1>
+                                    <h2 className="subtitle">You don't run any classes.</h2>
                                 </div>)}
-                            </div>
-                        </div>
-                        <div className="column is-3 is-8-mobile is-offset-2-mobile">
-                            <div className="box has-text-centered">
-                                <h2 className="subtitle">Find your classes</h2>
-                                <div className="field">
-                                    <div className="control">
-                                        <input type="text" className="input" placeholder="Class Code"/>
-                                    </div>
-                                </div>
-                                <button className="button is-primary">Join</button>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section></>
-        );
+            </section>
+        </>);
     }
 }
 
-export default Dashboard;
+export default TeacherDashboard;
