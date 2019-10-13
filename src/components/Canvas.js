@@ -22,8 +22,8 @@ class Canvas extends React.Component {
             lines: []
         }
     }
-    loadImage() {
-
+    componentWillMount() {
+        //this.draw();
     }
     getMousePos(canvas, e) {
         const rect = canvas.getBoundingClientRect();
@@ -59,6 +59,8 @@ class Canvas extends React.Component {
         const canvas = document.getElementById('marking');
         const ctx = canvas.getContext('2d');
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+        ctx.globalAlpha = 1;
+        this.drawImage(ctx);
         
         for (let i = 0; i < this.state.lines.length; i++) {
             ctx.strokeStyle = tools[this.state.lines[i].tool].color;
@@ -73,6 +75,11 @@ class Canvas extends React.Component {
             }
             ctx.stroke();
         }
+    }
+    drawImage(ctx) {
+        let img = new Image();
+        img.src = this.props.img;
+        this.props.img && ctx.drawImage(img, 0, 0, 600, 600);
     }
     switchTool(tool) {
         this.setState({

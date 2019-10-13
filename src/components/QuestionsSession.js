@@ -69,11 +69,11 @@ class QuestionsSession extends React.Component {
         const imageId = Number(new Date());
         const storageRef = firebase.storage().ref(`images/${imageId}`);
         storageRef.put(document.getElementById('uploadPhoto').files[0])
-            .then(snapshot => {
+            .then(snapshot => snapshot.ref.getDownloadURL()).then(url => {
                 firebase.database().ref(`students/${this.state.uid}/classes/${this.state.classId}/done/${this.state.setId}/questions/${this.state.currentQuestion}`)
                     .set({
                         time: this.state.time,
-                        image: imageId
+                        image: url
                     });
             })
             .then(() => this.nextQuestion())

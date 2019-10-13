@@ -1,55 +1,50 @@
 import React from 'react';
-import Completed from './Completed';
-class Feedback
- extends React.Component {
+import QSet from './QSet';
+class Feedback extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {/* 
+            viewIndex: 0 */
+        }
+    }
+    selectSet(index) {
+        this.setState({/* 
+            viewIndex: index, */
+            selectedSet: this.props.sets[index]
+        });
+    }
     render() {
         return (
-            <section className="container">
-                <h1 className="title"> Overall:</h1>
-                <p className="subtitle"> Cool and Good</p>
+            <>
+                {/* <h1 className="title"> Overall</h1>
+                <p className="subtitle"> Cool and Good</p> */}
 
-                <h1 className="title">
-                    Reviewed Question Sets
-                </h1>
 
-                    <section className="columns">
-                    <section className="columns is-one-fifth">
+                <div className="columns">
+                    <div className="column is-one-third">
+                        <h1 className="title">
+                            Reviewed Question Sets
+                        </h1>
                         <div className="columns is-multiline is-gapless">
-                        {[
-                            {
-                                title: 'Stoichiometery',
-                                questions: ['', '', '', '', '']
-
-                             
-                            }, {
-                                title: 'Energetics',
-                                questions: ['', '', '', '', '']
-                            }
-                        ].map(set => 
-                        <div key={set.title} className="column is-8">
-                            <Completed title={set.title} numQuestions={set.questions.length}/>
- 
-
-                        </div>)}
-
-                    
+                            {this.props.sets.map((set, index) => 
+                            <div key={set.name} className="column is-12">
+                                <QSet title={set.name} numQuestions={set.length} goto={() => this.selectSet(index)}/>
+                            </div>)}                        
                         </div>
-                    </section>
+                    </div>
 
-                    <section className="columns">
-                        <div className="container">
-                         
-                          </div>
-                    </section>
-
-                      
-                
-                </section>
+                    <div className="column">
+                        {this.state.selectedSet && (
+                        <div className="box">
+                            <h1 className="title">{this.state.selectedSet.name}</h1>
+                        </div>)}
+                    </div>
+                </div>
                
                
 
 
-             </section>  
+             </> 
                 
             );
     }

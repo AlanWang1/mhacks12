@@ -6,6 +6,7 @@ import 'firebase/database';
 import config from '../../config';
 import UserNavbar from './UserNavbar';
 import Loading from './Loading';
+import ClassButton from './ClassButton';
 
 class TeacherDashboard extends React.Component {
     constructor(props) {
@@ -19,19 +20,20 @@ class TeacherDashboard extends React.Component {
                 window.location = 'signin';
             } else {
                 this.setState({
-                    name: firebase.auth().currentUser.displayName,
-                    profilePhoto: firebase.auth().currentUser.photoURL
+                    name: user.displayName,
+                    profilePhoto: user.photoURL
                 });
                 firebase.database().ref(`teachers/${user.uid}`).once('value', snapshot => {
                     if (snapshot.exists()) {
+                        const value = snapshot.val();
                         this.setState({
-                            classes: Object.keys(snapshot.val().classes ? snapshot.val().classes : []),
+                            classes: value.classes ? Object.keys(value.classes).map(classId => ({id: classId, name: value.classes[classId].name})) : [],
                             loading: false
                         });
                     } else {
                         firebase.database().ref(`teachers/${user.uid}`).set({
                             classes: {},
-                            name: firebase.auth().currentUser.displayName,
+                            name: user.displayName,
                         });
                         this.setState({
                             classes: [],
@@ -75,7 +77,7 @@ class TeacherDashboard extends React.Component {
                             <div className="columns is-multiline class-buttons">
                                 {this.state.classes.map((classData, index) => 
                                 <div key={classData} className="column is-6">
-                                    <ClassButton name={classData}/>
+                                    <ClassButton name={classData.name} goto={`class-dashboard/${classData.id}`}/>
                                 </div>)}
                                 {this.state.classes.length === 0 &&
                                 (<div className="column is-5">

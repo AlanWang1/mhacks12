@@ -13,6 +13,14 @@
       {
         "source": "/**/**/questions",
         "destination": "/questions.html"
+      },
+      {
+        "source": "/class/**",
+        "destination": "/subjectView.html"
+      },
+      {
+        "source": "/feedback-studio/**",
+        "destination": "/editor.html"
       }
     ],
     "cleanUrls": true

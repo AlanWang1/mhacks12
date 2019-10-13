@@ -4,8 +4,8 @@ class QSet
  extends React.Component {
     render() {
         return (
-            <div className="box">
-                <div className="columns is-vcentered">
+            <div className="box like-button" onClick={this.props.goto}>
+                <div className="columns is-vcentered is-mobile">
                     <div className="column">
                         <h1 className="title is-size-4">{this.props.title}</h1>
                         <h1 className="subtitle">{this.props.description}</h1>
