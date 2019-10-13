@@ -57,50 +57,53 @@ ReactDOM.render(
 
             </div>
 
-        <div className="columns is-centered">
+        <div className="columns is-centered is-multiline">
             
-                <div className="column is-2">
-                    <div className="box">
-                    <span class="icon has-text-primary is-size-1">
-                        <i class="fas fa-file-alt"></i>
-                    </span>
-                    <br>
-                        Receive Question Sets
-                    </br>
+                <div className="column is-2-desktop is-5-tablet">
+                    <div className="info-box">
+                        <span className="icon has-text-primary is-large">
+                            <i className="fas fa-3x fa-file-alt"></i>
+                        </span>
+                        <br/>
+                        <h2 className="subtitle">
+                            Receive Question Sets
+                        </h2>
                     </div>     
                 </div>
 
-                <div className="column is-2">
-                    <div className="box">
-                    <span class="icon has-text-primary is-size-1">
-                        <i class="fas fa-chalkboard-teacher"></i>
-                    </span>
-                    <br>
-                        Send solutions to your teacher
-                    </br>
+                <div className="column is-2-desktop is-5-tablet">
+                    <div className="info-box">
+                        <span className="icon has-text-primary is-large">
+                            <i className="fas fa-3x fa-chalkboard-teacher"></i>
+                        </span>
+                        <br/>
+                        <h2 className="subtitle">
+                            Send solutions to your teacher
+                        </h2>
                     </div>
                 </div>
 
-                <div className="column is-2">
-                    <div className="box">
-                    <span class="icon has-text-primary is-size-1">
-                        <i class="fas fa-comment-dots"></i>
-                    </span>
-                    <br>
-                        Receive personalized feedback
-                    </br>
+                <div className="column is-2-desktop is-5-tablet">
+                    <div className="info-box">
+                        <span className="icon has-text-primary is-large">
+                            <i className="fas fa-3x fa-comment-dots"></i>
+                        </span>
+                        <br/>
+                        <h2 className="subtitle">
+                            Receive personalized feedback
+                        </h2>
                     </div>
                 </div>
 
-                <div className="column is-2">
-                    <div className="box">
-                    <span class="icon has-text-primary is-size-1">
-                        <i class="fas fa-chart-line"></i>
-                    </span>
-                    <br>
-                    Monitor your progress
-                    </br>
-                       
+                <div className="column is-2-desktop is-5-tablet">
+                    <div className="info-box">
+                        <span className="icon has-text-primary is-large">
+                            <i className="fas fa-3x fa-chart-line"></i>
+                        </span>
+                        <br/>
+                        <h2 className="subtitle">
+                            Monitor your progress
+                        </h2>
                     </div>
                 </div>
            

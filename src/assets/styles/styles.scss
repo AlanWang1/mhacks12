@@ -100,3 +100,10 @@ canvas {
         max-height: 3rem;
     }
 }
+.info-box {
+    @extend .box, .has-text-centered;
+    height: 15rem;
+    .icon {
+        margin: 2rem 0;
+    }
+}
