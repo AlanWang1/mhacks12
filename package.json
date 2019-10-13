@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "parcel watch src/*.html -d public --public-url ./"
+    "build": "parcel watch src/*.html -d public"
   },
   "repository": {
     "type": "git",

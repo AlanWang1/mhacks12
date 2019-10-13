@@ -11,10 +11,13 @@ class QuestionsSession extends React.Component {
     constructor(props) {
         super(props);
         if (!firebase.apps.length)  firebase.initializeApp(config.firebase);
+        const matches = window.location.toString().match(/.*\/(.*)\/(.*)\/questions/);
         this.state = {
             loading: true,
             loadingAuth: true,
             timer: false,
+            classId: matches[1],
+            setId: matches[2],
             completedQuestions: []
         };
         firebase.auth().onAuthStateChanged(user => {
@@ -23,21 +26,26 @@ class QuestionsSession extends React.Component {
             } else {
                 this.setState({
                     loadingAuth: false,
+                    uid: firebase.auth().currentUser.uid,
                     name: firebase.auth().currentUser.displayName,
                     profilePhoto: firebase.auth().currentUser.photoURL
                 });
-        this.getSet(this.props.setId);
+                this.getSet();
             }
         });
     }
-    getSet(id) {
-        const ref = firebase.database().ref(`/sets/${id}`);
+    getSet() {
+        const ref = firebase.database().ref(`/sets/${this.state.setId}`);
         ref.once('value', snapshot => {
-            this.setState({
-                set: snapshot.val(),
-                currentQuestion: 0,
-                loading: false
-            });
+            if (snapshot.exists()) {
+                this.setState({
+                    set: snapshot.val(),
+                    currentQuestion: 0,
+                    loading: false
+                });
+            } else {
+                // go back
+            }            
         });
     }
     startQuestion() {
@@ -62,7 +70,7 @@ class QuestionsSession extends React.Component {
         const storageRef = firebase.storage().ref(`images/${imageId}`);
         storageRef.put(document.getElementById('uploadPhoto').files[0])
             .then(snapshot => {
-                firebase.database().ref(`students/${this.props.studentId}/classes/${this.props.classId}/done/${this.props.setId}/questions/${this.state.currentQuestion}`)
+                firebase.database().ref(`students/${this.state.uid}/classes/${this.state.classId}/done/${this.state.setId}/questions/${this.state.currentQuestion}`)
                     .set({
                         time: this.state.time,
                         image: imageId
@@ -73,7 +81,7 @@ class QuestionsSession extends React.Component {
     }
     nextQuestion() {
         if (this.state.currentQuestion + 1 >= this.state.set.questions.length) {
-            firebase.database().ref(`students/${this.props.studentId}/classes/${this.props.classId}/done/${this.props.setId}`)
+            firebase.database().ref(`students/${this.state.uid}/classes/${this.state.classId}/done/${this.state.setId}`)
                 .update({
                     finished: true
             });

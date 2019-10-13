@@ -6,5 +6,5 @@ import QuestionsSession from '../components/QuestionsSession';
 
 ReactDOM.render(
     <Layout>
-        <QuestionsSession studentId="student1Id" classId="classId" setId="set1Id"/> 
+        <QuestionsSession classId="classId" setId="set1Id"/> 
     </Layout>, document.getElementById("root"));

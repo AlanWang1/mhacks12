@@ -9,6 +9,12 @@
       "**/.*",
       "**/node_modules/**"
     ],
+    "rewrites": [
+      {
+        "source": "/**/**/questions",
+        "destination": "/questions.html"
+      }
+    ],
     "cleanUrls": true
   },
   "storage": {

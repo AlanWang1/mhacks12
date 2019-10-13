@@ -2,6 +2,7 @@ import React from 'react';
 
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
+import 'firebase/database';
 import config from '../../config';
 
 import UserNavbar from '../components/UserNavbar';
@@ -19,10 +20,15 @@ class Dashboard extends React.Component {
                 window.location = 'signin';
             } else {
                 this.setState({
-                    loading: false,
                     name: firebase.auth().currentUser.displayName,
                     profilePhoto: firebase.auth().currentUser.photoURL
                 });
+                firebase.database().ref(`students/${user.uid}/classes`).once('value', snapshot => {
+                    this.setState({
+                        classes: Object.keys(snapshot.val()),
+                        loading: false
+                    });
+                })
             }
         });
     }
@@ -66,7 +72,7 @@ class Dashboard extends React.Component {
                 <div className="container">
                     <h2 className="subtitle is-3">Your classes</h2>
                     <div className="columns is-multiline class-buttons">
-                        {['History', 'English', 'Mathematics', 'Chemistry'].map(classData => 
+                        {this.state.classes.map((classData, index) => 
                         <div key={classData} className="column is-5">
                             <ClassButton name={classData}/>
                         </div>)}
