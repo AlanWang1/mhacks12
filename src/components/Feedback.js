@@ -1,10 +1,10 @@
 import React from 'react';
-
+import Completed from './Completed';
 class Feedback
  extends React.Component {
     render() {
         return (
-            <body className="has-text-centered">
+            <section className="container">
                 <h1 className="title"> Overall:</h1>
                 <p className="subtitle"> cdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd </p>
 
@@ -12,41 +12,44 @@ class Feedback
                     Reviewed Question Sets
                 </h1>
 
-                    <section className="columns is-centered">
+                    <section className="columns">
+                    <section className="columns is-narrow">
                         <div className="columns is-multiline">
-                    {[
-                        {
-                            title: 'Stoichiometery',
-                            description:'Cool',
-                            questions: ['', '', '', '', '', '']
-                        }, {
-                            title: 'Energetics',
-                            description:'Good',
-                            questions: ['', '', '', '', '']
-                        }, {
-                            title: 'Atomic Structure',
-                            description:'Good',
-                            questions: ['', '', '',  '']
-                        }, {
-                            title: 'Biochemistry',
-                            description:'Good',
-                            questions: ['', '']
-                        }
-                    ].map(set => 
-                    <div key={set.title} className="column is-12">
-                        <Completed title={set.title} description={set.description} numQuestions={set.questions.length}/>
+                        {[
+                            {
+                                title: 'Stoichiometery',
+                                questions: ['', '', '', '', '']
 
-                    </div>)}
+                             
+                            }, {
+                                title: 'Energetics',
+                                questions: ['', '', '', '', '']
+                            }
+                        ].map(set => 
+                        <div key={set.title} className="column is-12">
+                            <Completed title={set.title} numQuestions={set.questions.length}/>
+ 
 
-                   
-                    </div>
+                        </div>)}
+
+                    
+                        </div>
+                    <section className="columns">
+                        <div className="container">
+                          
+                        </div>
+                    </section>
+
+                    </section>
+
+                      
                 
                 </section>
                
                
 
 
-             </body>  
+             </section>  
                 
             );
     }

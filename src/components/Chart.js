@@ -10,15 +10,13 @@ class Chart
                     labels:[1,2,3,4,5,6,7,8,9],
                     datasets:[{
                         data:[0.5,0.7,0.6,0.85,1.2],
-                        label:"Ratio",
-                        borderColor: "#ff3d3d",
-                        fill:false
+                        pointRadius:5,
+                        backgroundColor: ['red','yellow','green'],
+                        fill:false             
                     }]
                     
                 }
-                
-        
-            
+ 
         }
      }
     render() {
@@ -30,11 +28,11 @@ class Chart
                     options={{
                         title:{
                             display:true,
-                            text:"HI",
+                            text:"Your Progresss",
                             fontSize: 20
                         },
                         legend:{
-                            display:true,
+                            display:false,
                         },
                         responsive:true,
                         maintainAspectRatio: true,
