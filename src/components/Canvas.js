@@ -96,7 +96,7 @@ class Canvas extends React.Component {
                         onMouseUp={() => this.stopDrawingLine()}
                         onMouseLeave={() => this.stopDrawingLine()}>
                 </canvas>
-                <div className="box">
+                <div>
                     <span className={`icon like-button is-large ${this.state.tool === 'marker' && ' has-text-info' || ''}`} onClick={() => this.switchTool('marker')}>
                         <i className="fas fa-2x fa-marker"></i>
                     </span>

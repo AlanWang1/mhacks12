@@ -23,16 +23,25 @@ class Dashboard extends React.Component {
                     name: firebase.auth().currentUser.displayName,
                     profilePhoto: firebase.auth().currentUser.photoURL
                 });
-                firebase.database().ref(`students/${user.uid}/classes`).once('value', snapshot => {
-                    this.setState({
-                        classes: Object.keys(snapshot.val()),
-                        loading: false
-                    });
+                firebase.database().ref(`students/${user.uid}`).once('value', snapshot => {
+                    if (snapshot.exists()) {
+                        this.setState({
+                            classes: Object.keys(snapshot.val().classes ? snapshot.val().classes : []),
+                            loading: false
+                        });
+                    } else {
+                        firebase.database().ref(`students/${user.uid}`).set({
+                            classes: {},
+                            name: firebase.auth().currentUser.displayName,
+                        });
+                        this.setState({
+                            classes: [],
+                            loading: false
+                        });
+                    }
                 })
             }
         });
-    }
-    componentWillMount() {
     }
     render() {
         return this.state.loading ? (
@@ -54,7 +63,7 @@ class Dashboard extends React.Component {
                             <h2 className="subtitle">Good afternoon,</h2>
                             <h1 className="title">{this.state.name}</h1>
                         </div>
-                        <div className="column is-4 has-text-centered">
+                        <div className="column is-3 has-text-centered">
                             <h2 className="subtitle">Last 7 days</h2>
                             <span className="activity-day"/>
                             <span className="activity-day lit"/>
@@ -71,11 +80,31 @@ class Dashboard extends React.Component {
             <section className="section">
                 <div className="container">
                     <h2 className="subtitle is-3">Your classes</h2>
-                    <div className="columns is-multiline class-buttons">
-                        {this.state.classes.map((classData, index) => 
-                        <div key={classData} className="column is-5">
-                            <ClassButton name={classData}/>
-                        </div>)}
+                    <div className="columns is-centered">
+                        <div className="column is-9">
+                            <div className="columns is-multiline class-buttons">
+                                {this.state.classes.map((classData, index) => 
+                                <div key={classData} className="column is-6">
+                                    <ClassButton name={classData}/>
+                                </div>)}
+                                {this.state.classes.length === 0 &&
+                                (<div className="column is-5">
+                                    <h1 className="title">Unfortunately...</h1>
+                                    <h2 className="subtitle">You're not in any classes.</h2>
+                                </div>)}
+                            </div>
+                        </div>
+                        <div className="column is-3 is-8-mobile is-offset-2-mobile">
+                            <div className="box has-text-centered">
+                                <h2 className="subtitle">Find your classes</h2>
+                                <div className="field">
+                                    <div className="control">
+                                        <input type="text" className="input" placeholder="Class Code"/>
+                                    </div>
+                                </div>
+                                <button className="button is-primary">Join</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section></>
