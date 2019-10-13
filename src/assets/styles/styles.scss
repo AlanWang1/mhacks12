@@ -14,7 +14,7 @@ $footer-background-color: $yellowDark;
 
 $primary: $green;
 @import '../../../node_modules/bulma/bulma.sass';
-
+@import '../../../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
 
 .activity-day {
     display: inline-block;
