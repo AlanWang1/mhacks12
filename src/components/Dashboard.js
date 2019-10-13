@@ -5,7 +5,7 @@ import 'firebase/auth';
 import config from '../../config';
 
 import UserNavbar from '../components/UserNavbar';
-import SubjectButton from '../components/SubjectButton';
+import ClassButton from '../components/ClassButton';
 
 class Dashboard extends React.Component {
     constructor(props) {
@@ -14,18 +14,17 @@ class Dashboard extends React.Component {
         this.state = {
             loading: true
         }
-        if (firebase.auth().currentUser === null) {
-            firebase.auth().onAuthStateChanged(user => {
-                if (!user) {
-                    window.location = 'signin';
-                } else {
-                    this.setState({
-                        loading: false,
-                        name: firebase.auth().currentUser.displayName
-                    });
-                }
-            });
-        }
+        firebase.auth().onAuthStateChanged(user => {
+            if (!user) {
+                window.location = 'signin';
+            } else {
+                this.setState({
+                    loading: false,
+                    name: firebase.auth().currentUser.displayName,
+                    profilePhoto: firebase.auth().currentUser.photoURL
+                });
+            }
+        });
     }
     componentWillMount() {
     }
@@ -41,7 +40,7 @@ class Dashboard extends React.Component {
                     </div>
                 </section>
             ) : (<>
-            <UserNavbar/>
+            <UserNavbar profilePhoto={this.state.profilePhoto}/>
             <section className="section">
                 <div className="container">
                     <div className="columns has-text-centered-mobile">
@@ -65,11 +64,11 @@ class Dashboard extends React.Component {
             </section>
             <section className="section">
                 <div className="container">
-                    <h2 className="subtitle is-3">Your subjects</h2>
-                    <div className="columns is-multiline subject-buttons">
-                        {['History', 'English', 'Mathematics', 'Chemistry'].map(subject => 
-                        <div key={subject} className="column is-5">
-                            <SubjectButton name={subject}/>
+                    <h2 className="subtitle is-3">Your classes</h2>
+                    <div className="columns is-multiline class-buttons">
+                        {['History', 'English', 'Mathematics', 'Chemistry'].map(classData => 
+                        <div key={classData} className="column is-5">
+                            <ClassButton name={classData}/>
                         </div>)}
                     </div>
                 </div>

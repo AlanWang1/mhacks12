@@ -15,7 +15,9 @@ class UserNavbar extends React.Component {
                             Notifications
                         </div>
                         <div className="navbar-item">
-                            Profile
+                            <figure className="image">
+                                <img src={this.props.profilePhoto} className="is-rounded like-button" alt="Profile" />
+                            </figure>
                         </div>
                     </div>
                 </div>

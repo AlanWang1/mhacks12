@@ -6,12 +6,5 @@ import QuestionsSession from '../components/QuestionsSession';
 
 ReactDOM.render(
     <Layout>
-        <UserNavbar/>
-        <section className="hero is-large">
-            <div className="hero-body">
-                <div className="container">
-                    <QuestionsSession studentId="student1Id" classId="classId" setId="set1Id"/>                    
-                </div>
-            </div>
-        </section>
+        <QuestionsSession studentId="student1Id" classId="classId" setId="set1Id"/> 
     </Layout>, document.getElementById("root"));
