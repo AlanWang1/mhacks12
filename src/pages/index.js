@@ -44,11 +44,14 @@ ReactDOM.render(
                 </div>
                 <div className="column">
                         <h1 className="title">
-                            What is TimeCheck?
+                            Welcome to Your Ultimate Study Companion
                         </h1>
                         <p> 
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
+                            TimeCheck is a practical solution to many of the problems that students face today 
+                            such as test anxiety and poor study habits. Timed questions help students prepare for strict time contrainsts on tests while 
+                            teacher feedback allows students to understand expectations. TimeCheck also promotes healthy study habits by prooting daily practice and giving them tools to 
+                            track their progress. 
+            
                         </p>
  
 

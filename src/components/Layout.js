@@ -10,7 +10,7 @@ class Layout extends React.Component {
      
             <section className="footer">
                 <div className="container has-text-centered">
-                    <h2 className="subtitle">Footer</h2>
+                    <h2 className="subtitle">TimeCheck 2019</h2>
                 </div>
             </section>
         </main>
