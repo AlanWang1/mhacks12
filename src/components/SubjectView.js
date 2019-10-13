@@ -16,19 +16,19 @@ class SubjectView extends React.Component {
     render() {
         return (
             <>
-        <div class="tabs is-centered is-medium">
+        <div className="tabs is-centered is-medium">
             <ul>
-                <li class="is-active">
+                <li className={this.state.activeTab==="ToDo"&&"is-active"}>
                 <a onClick={() =>this.changeState("ToDo")}>
                     <span>To-Do</span>
                 </a>
                 </li>
-                <li>
+                <li className={this.state.activeTab==="Feedback"&&"is-active"}>
                 <a onClick={() =>this.changeState("Feedback")}>
                     <span>Feedback</span>
                 </a>
                 </li>
-                <li>
+                <li className={this.state.activeTab==="Analytics"&&"is-active"}>
                 <a onClick={() =>this.changeState("Analytics")}>
                     <span>Analytics</span>
                 </a>
@@ -38,10 +38,12 @@ class SubjectView extends React.Component {
             </div>
 
 {this.state.activeTab==="Analytics" &&
+
             <Analytics>
 
 
             </Analytics>
+            
 }
 {this.state.activeTab==="Feedback" &&
             <Feedback>

@@ -19,7 +19,7 @@ class UserNavbar extends React.Component {
                         </div>
                         <div className="navbar-item">
                             <a href="/dashboard">
-                                <figure className="image">
+                                <figure className="image is-32x32">
                                     <img src={this.props.profilePhoto} className="is-rounded" alt="Profile" />
                                 </figure>
                             </a>
